@@ -2,7 +2,7 @@ import wx
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, title):
-        super(MyFrame, self).__init__(parent, title = title, size = (800, 800))
+        super(MyFrame, self).__init__(parent, title = title, size = (600, 500))
 
         panel = MyPanel(self)
 
@@ -10,24 +10,41 @@ class MyPanel(wx.Panel):
     def __init__(self, parent):
         super(MyPanel, self).__init__(parent)
         verticalBox = wx.BoxSizer(wx.VERTICAL)
-        horizontalBox = wx.BoxSizer(wx.HORIZONTAL)
+        horizontalBox0 = wx.BoxSizer(wx.HORIZONTAL)
+        horizontalBox1 = wx.BoxSizer(wx.HORIZONTAL)
         
         self.title = wx.StaticText(self, label = "Program Title", style=wx.ALIGN_CENTER)
-        verticalBox.Add(self.title, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 35)
+        verticalBox.Add(self.title, 0, wx.EXPAND | wx.TOP, 35)
 
         self.instructions = wx.StaticText(self, label = "Instructions", style=wx.ALIGN_CENTER)
-        verticalBox.Add(self.instructions, 0, wx.EXPAND)
+        verticalBox.Add(self.instructions, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 25)
 
-        self.hLabel=wx.StaticText(self, label = "This is a h label", style=wx.ALIGN_CENTER)
-        horizontalBox.Add(self.hLabel, 0, wx.EXPAND)
+        # first input set
+        self.firstLabel=wx.StaticText(self, label = "Enter input 1: ", style=wx.ALIGN_CENTER)
+        horizontalBox0.Add(self.firstLabel, 0, wx.EXPAND)
+        self.firstInput = wx.TextCtrl(self)
+        horizontalBox0.Add(self.firstInput, 0, wx.EXPAND)
 
-        self.anotherHLabel=wx.StaticText(self, label = "This is another h label", style=wx.ALIGN_CENTER)
-        horizontalBox.Add(self.anotherHLabel, 0, wx.EXPAND)
+        # second input set
+        self.firstLabel=wx.StaticText(self, label = "Enter input 2: ", style=wx.ALIGN_CENTER)
+        horizontalBox1.Add(self.firstLabel, 0, wx.EXPAND)
+        self.firstInput = wx.TextCtrl(self)
+        horizontalBox1.Add(self.firstInput, 0, wx.EXPAND)
+
+        # action button
+        actionButton = wx.Button(self, label = "Action", style=wx.ALIGN_CENTER)
+        actionButton.Bind(wx.EVT_BUTTON, print("Action!"))
+
+        # result message
         
-        verticalBox.Add(horizontalBox, 0, wx.ALIGN_CENTER)
+        # adding elements to verticalBox
+        verticalBox.Add(horizontalBox0, 0, wx.ALIGN_CENTER)
+        verticalBox.Add(horizontalBox1, 0, wx.ALIGN_CENTER | wx.TOP, 25)
+        verticalBox.Add(actionButton, 0, wx.ALIGN_CENTER | wx.TOP, 25)
+
         self.SetSizer(verticalBox)
     
-        #fonts
+        # fonts
         headerFont = wx.Font(24, wx.DEFAULT, wx.DEFAULT, wx.BOLD)
         self.title.SetFont(headerFont)
 

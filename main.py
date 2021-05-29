@@ -2,7 +2,7 @@ import wx
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, title):
-        super(MyFrame, self).__init__(parent, title = title, size = (600, 800))
+        super(MyFrame, self).__init__(parent, title = title, size = (800, 800))
 
         panel = MyPanel(self)
 
@@ -12,8 +12,8 @@ class MyPanel(wx.Panel):
         verticalBox = wx.BoxSizer(wx.VERTICAL)
         horizontalBox = wx.BoxSizer(wx.HORIZONTAL)
         
-        self.label = wx.StaticText(self, label = "This is a label", style=wx.ALIGN_CENTER)
-        verticalBox.Add(self.label, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 35)
+        self.title = wx.StaticText(self, label = "Program Title", style=wx.ALIGN_CENTER)
+        verticalBox.Add(self.title, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 35)
 
         self.anotherLabel = wx.StaticText(self, label = "This is another label", style=wx.ALIGN_CENTER)
         verticalBox.Add(self.anotherLabel, 0, wx.EXPAND)
@@ -26,10 +26,15 @@ class MyPanel(wx.Panel):
         
         verticalBox.Add(horizontalBox, 0, wx.ALIGN_CENTER)
         self.SetSizer(verticalBox)
+    
+        #fonts start
+        headerFont = wx.Font(18, wx.DEFAULT, wx.DEFAULT, wx.BOLD)
+        self.title.SetFont(headerFont)
+        #fonts end
 
 class MyApp(wx.App):
     def OnInit(self):
-        self.frame = MyFrame(parent = None, title = "Box Sizer")
+        self.frame = MyFrame(parent = None, title = "Program")
         self.frame.Show()
 
         return True

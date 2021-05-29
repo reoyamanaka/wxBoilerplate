@@ -15,8 +15,8 @@ class MyPanel(wx.Panel):
         self.title = wx.StaticText(self, label = "Program Title", style=wx.ALIGN_CENTER)
         verticalBox.Add(self.title, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 35)
 
-        self.anotherLabel = wx.StaticText(self, label = "This is another label", style=wx.ALIGN_CENTER)
-        verticalBox.Add(self.anotherLabel, 0, wx.EXPAND)
+        self.instructions = wx.StaticText(self, label = "Instructions", style=wx.ALIGN_CENTER)
+        verticalBox.Add(self.instructions, 0, wx.EXPAND)
 
         self.hLabel=wx.StaticText(self, label = "This is a h label", style=wx.ALIGN_CENTER)
         horizontalBox.Add(self.hLabel, 0, wx.EXPAND)
@@ -27,10 +27,12 @@ class MyPanel(wx.Panel):
         verticalBox.Add(horizontalBox, 0, wx.ALIGN_CENTER)
         self.SetSizer(verticalBox)
     
-        #fonts start
-        headerFont = wx.Font(18, wx.DEFAULT, wx.DEFAULT, wx.BOLD)
+        #fonts
+        headerFont = wx.Font(24, wx.DEFAULT, wx.DEFAULT, wx.BOLD)
         self.title.SetFont(headerFont)
-        #fonts end
+
+        subheaderFont = wx.Font(18, wx.DEFAULT, wx.DEFAULT, wx.DEFAULT)
+        self.instructions.SetFont(subheaderFont)
 
 class MyApp(wx.App):
     def OnInit(self):

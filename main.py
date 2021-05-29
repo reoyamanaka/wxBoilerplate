@@ -13,7 +13,7 @@ class MyPanel(wx.Panel):
         horizontalBox = wx.BoxSizer(wx.HORIZONTAL)
         
         self.label = wx.StaticText(self, label = "This is a label", style=wx.ALIGN_CENTER)
-        verticalBox.Add(self.label, 0, wx.EXPAND)
+        verticalBox.Add(self.label, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 35)
 
         self.anotherLabel = wx.StaticText(self, label = "This is another label", style=wx.ALIGN_CENTER)
         verticalBox.Add(self.anotherLabel, 0, wx.EXPAND)

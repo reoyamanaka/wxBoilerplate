@@ -47,8 +47,6 @@ class MyPanel(wx.Panel):
         verticalBox.Add(self.actionButton, 0, wx.ALIGN_CENTER | wx.TOP, 25)
         verticalBox.Add(statusBox, 0, wx.LEFT, 195)
 
-
-
         self.SetSizer(verticalBox)
 
         # action button binding

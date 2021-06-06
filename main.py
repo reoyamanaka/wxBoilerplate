@@ -1,4 +1,5 @@
 import wx
+import sys
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, title):
@@ -41,11 +42,15 @@ class MyPanel(wx.Panel):
         # creating action button
         self.actionButton = wx.Button(self, label = "Action", style=wx.ALIGN_CENTER)
 
+        # quit button
+        self.quitButton = wx.Button(self, label = "Quit", style = wx.ALIGN_CENTER)
+
         # adding elements to verticalBox
         verticalBox.Add(horizontalBox0, 0, wx.ALIGN_CENTER)
         verticalBox.Add(horizontalBox1, 0, wx.ALIGN_CENTER | wx.TOP, 25)
         verticalBox.Add(self.actionButton, 0, wx.ALIGN_CENTER | wx.TOP, 25)
         verticalBox.Add(statusBox, 0, wx.LEFT, 195)
+        verticalBox.Add(self.quitButton, 0, wx.ALIGN_CENTER | wx.TOP, 45)
 
         self.SetSizer(verticalBox)
 
@@ -56,7 +61,15 @@ class MyPanel(wx.Panel):
             status.SetLabel("Action button pressed!")
 
         self.actionButton.Bind(wx.EVT_BUTTON, action)
-    
+
+        # quit button binding
+        def quitProgram(self):
+            """Method to quit the program
+            """
+            sys.exit()
+
+        self.quitButton.Bind(wx.EVT_BUTTON, quitProgram)
+
         # fonts
         headerFont = wx.Font(24, wx.DEFAULT, wx.DEFAULT, wx.BOLD)
         self.title.SetFont(headerFont)

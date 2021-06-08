@@ -3,7 +3,7 @@ import sys
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, title):
-        super(MyFrame, self).__init__(parent, title = title, size = (600, 500))
+        super(MyFrame, self).__init__(parent, title = title, size = (600, 550))
 
         panel = MyPanel(self)
 
@@ -35,9 +35,11 @@ class MyPanel(wx.Panel):
 
         # status and output
         self.statusLabel = wx.StaticText(self, label = "Status", style = wx.ALIGN_CENTER)
-        status = wx.StaticText(self, label = "Awaiting...", style = wx.ALIGN_CENTER)
+        status0 = wx.StaticText(self, label = "Watching first input box...", style = wx.ALIGN_CENTER)
+        status1 = wx.StaticText(self, label = "Watching second input box...", style = wx.ALIGN_CENTER)
         statusBox.Add(self.statusLabel, 0, wx.ALIGN_CENTER | wx.TOP, 25)
-        statusBox.Add(status, 0, wx.ALIGN_CENTER | wx.TOP, 25)
+        statusBox.Add(status0, 0, wx.ALIGN_CENTER | wx.TOP, 25)
+        statusBox.Add(status1, 0, wx.ALIGN_CENTER | wx.TOP, 25)
 
         # creating action button
         self.actionButton = wx.Button(self, label = "Action", style=wx.ALIGN_CENTER)
@@ -49,7 +51,7 @@ class MyPanel(wx.Panel):
         verticalBox.Add(horizontalBox0, 0, wx.ALIGN_CENTER)
         verticalBox.Add(horizontalBox1, 0, wx.ALIGN_CENTER | wx.TOP, 25)
         verticalBox.Add(self.actionButton, 0, wx.ALIGN_CENTER | wx.TOP, 25)
-        verticalBox.Add(statusBox, 0, wx.LEFT, 195)
+        verticalBox.Add(statusBox, 0, wx.ALIGN_CENTER | wx.TOP, 25)
         verticalBox.Add(self.quitButton, 0, wx.ALIGN_CENTER | wx.TOP, 45)
 
         self.SetSizer(verticalBox)
@@ -58,7 +60,7 @@ class MyPanel(wx.Panel):
         def action(self):
             """Arbitrary action function
             """
-            status.SetLabel("Action button pressed!")
+            status0.SetLabel("Action button pressed!")
 
         self.actionButton.Bind(wx.EVT_BUTTON, action)
 

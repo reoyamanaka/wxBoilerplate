@@ -70,7 +70,6 @@ class MyPanel(wx.Panel):
             status1.SetLabel(f"{getInput(self.secondInput)} was entered!")
             statusBox.Layout()
 
-
         self.actionButton.Bind(wx.EVT_BUTTON, action)
 
         # quit button binding

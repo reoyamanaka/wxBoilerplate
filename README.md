@@ -61,14 +61,14 @@
 ## About The Project
 
 <p align="left">
-  <img src="images/0.png" width="729" height="330">
+  <img src="images/0.png" />
 </p>
 
 ### Built With
 
-* macOS High Sierra Version 10.13.6
+* macOS Big Sur Version 11.4
 * Adobe Illustrator Version 23.1 (Logo design)
-* Python 3.8.1
+* Python 3.9.5
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -77,9 +77,9 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* requests
+* Install requirements
   ```sh
-  pip install requests
+  pip install -r requirements.txt
   ```
 
 ### Installation
@@ -88,16 +88,16 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/reoyamanaka/wxBoilerplate.git
    ```
-2. Install requests
-   ```sh
-   pip install requests
-   ```
+2. Install requirements
+  ```sh
+  pip install -r requirements.txt
+  ```
 
 
 <!-- USAGE -->
 ## Usage
 
-![](images/litIpsumApiDemo.gif)
+![](images/demo.gif)
 
 
 <!-- ROADMAP -->

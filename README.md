@@ -60,6 +60,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+This is a boilerplate wxPython project that can be easily customized for specific purposes.
+
 <p align="left">
   <img src="images/0.png" />
 </p>

@@ -28,10 +28,10 @@ class MyPanel(wx.Panel):
         horizontalBox0.Add(self.firstInput, 0, wx.EXPAND)
 
         # second input set
-        self.firstLabel=wx.StaticText(self, label = "Enter input 2: ", style=wx.ALIGN_CENTER)
-        horizontalBox1.Add(self.firstLabel, 0, wx.EXPAND)
-        self.firstInput = wx.TextCtrl(self)
-        horizontalBox1.Add(self.firstInput, 0, wx.EXPAND)
+        self.secondLabel=wx.StaticText(self, label = "Enter input 2: ", style=wx.ALIGN_CENTER)
+        horizontalBox1.Add(self.secondLabel, 0, wx.EXPAND)
+        self.secondInput = wx.TextCtrl(self)
+        horizontalBox1.Add(self.secondInput, 0, wx.EXPAND)
 
         # status and output
         self.statusLabel = wx.StaticText(self, label = "Status", style = wx.ALIGN_CENTER)
@@ -56,11 +56,18 @@ class MyPanel(wx.Panel):
 
         self.SetSizer(verticalBox)
 
+        # retrieve text input(s)
+        def getInput(inputField):
+            """retrieves the value of a specified input box
+            """
+            return inputField.GetValue()
+
         # action button binding
-        def action(self):
+        def action(e):
             """Arbitrary action function
             """
-            status0.SetLabel("Action button pressed!")
+            status0.SetLabel(f"{getInput(self.firstInput)} was entered!")
+            status1.SetLabel(f"{getInput(self.secondInput)} was entered!")
 
         self.actionButton.Bind(wx.EVT_BUTTON, action)
 

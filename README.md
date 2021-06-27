@@ -89,9 +89,9 @@ To get a local copy up and running follow these simple steps.
    git clone https://github.com/reoyamanaka/wxBoilerplate.git
    ```
 2. Install requirements
-  ```sh
-  pip install -r requirements.txt
-  ```
+   ```sh
+   pip install -r requirements.txt
+   ```
 
 
 <!-- USAGE -->

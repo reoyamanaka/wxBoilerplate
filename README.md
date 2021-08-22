@@ -79,9 +79,9 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* Install requirements
+* wxPython
   ```sh
-  pip install -r requirements.txt
+  pip install wxPython
   ```
 
 ### Installation
